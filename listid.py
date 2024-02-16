@@ -436,3 +436,36 @@ while True:
         print(f'valmis, katsed on {katsed}')
         kas_sona_on = False
         permission = True
+#14
+
+pealinn = ["Amsterdam", "Vena", "Tallinn", "Helsjinki", "Stockholm", "Riga", "Oslo", "Paris","Lissabon", "Rim",]
+pealinn.sort()
+for i in pealinn:
+    print(i)
+
+for i in range(2):
+    uue_pealinn = input("Sisestage uue pealinn ")
+    pealinn.append(uue_pealinn)
+pealinn.sort()
+
+for i in pealinn:
+    indeks = pealinn.index(i)
+    pealinn[indeks] = str((indeks + 1)) + ". " + i
+
+print(pealinn)
+
+#15
+
+numbrid = [[1,2,3,4,5,6],['üks','kaks','kolm','neli','viis','kuus'],['one','two','three','four'],['uno','due','tre','quattro']]
+indeks = -1
+summa = 0
+percent = 0
+for x in numbrid:
+    summa += len(x)
+while round(percent, 2) < 1.0:
+    indeks += 1
+    for i in range(len(numbrid)):
+        if len(numbrid[i]) > indeks:
+            print(numbrid[i][indeks], end=" ")
+            percent += 1 / summa
+    print()
