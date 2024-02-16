@@ -458,14 +458,13 @@ print(pealinn)
 
 numbrid = [[1,2,3,4,5,6],['üks','kaks','kolm','neli','viis','kuus'],['one','two','three','four'],['uno','due','tre','quattro']]
 indeks = -1
-summa = 0
-percent = 0
+tingimused = [0,0]
 for x in numbrid:
-    summa += len(x)
-while round(percent, 2) < 1.0:
+    tingimused[0] += len(x)
+while tingimused[1] != tingimused[0]:
     indeks += 1
     for i in range(len(numbrid)):
         if len(numbrid[i]) > indeks:
             print(numbrid[i][indeks], end=" ")
-            percent += 1 / summa
+            tingimused[1] += 1
     print()
