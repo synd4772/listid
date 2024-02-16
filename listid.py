@@ -375,27 +375,58 @@ from random import *
 
 #13
 
-sonad_list = ["Arv", "Sõna", "Maa", "Puu", "Õun"]
-rand_sona = sonad_list[randint(0,len(sonad_list) - 1)]
-secret_sona = "_" * len(rand_sona)
-lst = []
-indeks_list = []
-print(rand_sona, "admin")
-
+kas_sona_on = False
+permission = True
 while True:
-    print(secret_sona)
-    indeks = -1
-    v = input("Sistage: ")
-    if len(v) > 1:
-        continue
-    else: 
-        for i in rand_sona:
-            indeks += 1
-            if v.upper() == i.upper():
-                indeks_list.append(indeks)
-                lst.append(v)
-        if len(indeks_list) != 0:
-            print(indeks_list)
-            for i in indeks_list:
-                secret_sona[i] = lst[i]
+    if kas_sona_on == False:
+        sonad_list = ["Juhatus", "Ema", "Puu", "Tiiger"]
+        rand_sona = [sonad_list[randint(0, len(sonad_list) - 1)],""]
+        print(rand_sona[0], "ONLY FOR ADMIN!")
+        condition = [0, 0]
+        lst = []
 
+        for i in rand_sona[0]:
+            if i != " ":
+                rand_sona[1] += "_"
+                condition[0] += 1
+            else:
+                rand_sona[1] += " "
+
+        kas_sona_on = True
+
+        print(f"-------------------------\nSõna on valitud! See koosneb {condition[0]} tähest.\n-------------------------")
+        tyaht = input("Kirjuta täht, mis on võimalik sõna! ")
+        if len(tyaht) > 1 or tyaht.isnumeric():
+            print("Sa pead kirjutama ühe tähe!")
+    print("=---------SÕNE---------=\n", rand_sona[1], "\n=----------------------=")
+
+
+
+    if condition[0] != condition[1]:
+        if permission == False:
+            tyaht = input("Kirjuta täht, mis on võimalik sõna! ")
+        permission = False
+
+        indeks = -1
+        if rand_sona[0].upper().count(tyaht.upper()) != 0:
+            for i in rand_sona[0]:
+                if i == " ":
+                    pass
+                    indeks += 1
+                elif tyaht.upper() == i.upper():
+                    indeks += 1
+                    lst.append(indeks)
+                else:
+                    indeks += 1
+            if len(lst) != 0:
+                for i in lst:
+                    rand_sona[1] = list(rand_sona[1])
+                    rand_sona[1][i] = rand_sona[0][i]
+                    rand_sona[1] = ''.join(rand_sona[1])
+                    condition[1] += 1
+            lst = []
+        else:
+            print(f"{tyaht}-tähti pole, proovi uuesti.")
+    else:
+        kas_sona_on = False
+        permission = True
