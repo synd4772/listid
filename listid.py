@@ -1,3 +1,5 @@
+from random import *
+
 #----------------------------------------------------------------------
 ##2 Loetelu
 
@@ -163,25 +165,28 @@
 #----------------------------------------------------------------------
 ##6: Бесполезные числа
 
-v = int(input("Kui palju numbreid te nimekirjas soovite?"))
-lst = []
-for i in range(v):
-    v = int(input())
-    lst.append(v)
+#1v for
+#lst = []
+#v = int(input("Kui palju numbreid te nimekirjas soovite?"))
+#for i in range(v):
+#    v = int(input("Arv: "))
+#    lst.append(v)
+#suur = 0
+#for el in lst:
+#    if el > suur:
+#        suur = el
+#print(f"suur {suur}, indeks on {lst.index(suur) + 1}\n{lst}")
+#lst[lst.index(suur)] = suur / len(lst)
 
-suur = 0
-indks = -1
-v_indeks = 0
-
-for i in lst:
-    indks += 1
-    if i > 0:
-        suur = i
-        v_indeks = indks
-
-print(f"suur {suur}, indeks on {v_indeks}")
-lst[v_indeks] = suur / len(lst)
-print(lst)
+##2v sort 
+#lst = []
+#v = int(input("Kui palju numbreid te nimekirjas soovite?"))
+#for i in range(v):
+#    v = int(input("Arv: "))
+#    lst.append(v)
+#lst.sort()
+#print(f"suur {lst[-1]}, indeks on {lst.index(lst[-1]) + 1}\n{lst}")
+#lst[lst.index(lst[-1])] = lst[-1] / ( len(lst) + 1 )
 
 #----------------------------------------------------------------------
 ##7 Sorteerimine
@@ -199,21 +204,198 @@ print(lst)
 #----------------------------------------------------------------------
 ##8 Võrdsepikkusega elemendid
 
-lst = [['крот', 'белка', 'выхухоль'], ['a', 'aa', 'aaa', 'aaaa', 'aaaaa'], ['qweasdqweas', 'q', 'rteww', 'ewqqqqq']]
-suur = 0
-indks = 0
+#lst = [['крот', 'белка', 'выхухоль'], ['a', 'aa', 'aaa', 'aaaa', 'aaaaa'], ['qweasdqweas', 'q', 'rteww', 'ewqqqqq']]
+#suur = 0
+#indks = 0
 
-for i in range(len(lst)):
-    suur = 0
-    for j in lst[i]:
-        suur = len(j)
-        for x in lst[i]:
-            if len(x) < suur:
-                indks = lst[i].index(x)
-                len_el = suur - len(x) 
-                lst[i][indks] += "_" * len_el
+#for i in range(len(lst)):
+#    suur = 0
+#    for j in lst[i]:
+#        suur = len(j)
+#        for x in lst[i]:
+#            if len(x) < suur:
+#                indks = lst[i].index(x)
+#                len_el = suur - len(x) 
+#                lst[i][indks] += "_" * len_el
 
-print(lst)
+#print(lst)
 
 #----------------------------------------------------------------------
-##9: Nimi kontroll
+#9: Nimi kontroll
+#konsonantid = ["Q","R","T","P","S","D","F","G","H","J","K","L","Z","X","C","V","B","N","M","W"]
+#vokaalid = ["A","U","E","O","I","Ü","Õ","Ä","Ö","Y","Ä"]
+
+
+#tyhik = 0
+#vokaali = 0
+#konsonanti = 0
+#sumbolid = 0
+
+#breek = False
+#arv = 0
+#indeks = 0
+#nimi = ""
+
+#while breek == False:
+#    nimi = input("Mis sinu nimi on? ")
+#    indeks = 0
+#    arv = 0
+#    for i in nimi:
+#        indeks += 1
+#        if int(i.isnumeric()):
+#            arv += 1
+#    if len(nimi) == indeks:
+#        if arv == 0:
+#            breek = True
+#print(f"Tere {nimi.capitalize()}!")
+
+#sona_len = len(nimi)
+#sona_list = list(nimi)
+#for i in sona_list:
+#    if i == " ":
+#        tyhik += 1
+#    else:
+#        for vokaal_sona in vokaalid:
+#            if str(i).upper() == str(vokaal_sona):
+#                vokaali += 1
+#        for konsonanti_sona in konsonantid:
+#            if str(i).upper() == str(konsonanti_sona):
+#                konsonanti += 1        
+
+#sumbolid = sona_len - konsonanti - vokaali - tyhik
+   
+#print(f"[{nimi}] : tühikud on {tyhik}, vokaalid on {vokaali}, konsonantid on {konsonanti}; sumbolid on {sumbolid}")
+
+
+#10
+
+#lst = [["Aadu Suur",56,2500],["Malle Kapsas",42,1500],["Uudo Koba",32,700],["Tiit Kopikas",22,550],["Vahur Vana",67,870]]
+#maks = 0
+#suur = 0
+#keskm = 0
+
+
+#while True:
+#    v = int(input("\nMida sa näha tahad? "))
+#    if v == 0:
+#        for x in range(len(lst)):
+#            indeks = -1
+#            for i in lst:
+#                for j in lst[x]:
+#                    indeks += 1
+#                    if indeks == 2:
+#                        if j > maks:
+#                            maks = i
+#        print(f"nimi: {maks[0]}, palga suuruse: {maks[2]}\n-------------------")
+#    elif v == 1:
+#        zar_plat = 0
+#        for x in range(len(lst)):
+#            indeks = -1
+#            for i in lst:
+#                for j in lst[x]:
+#                    indeks += 1
+#                    if indeks == 2:
+#                        zar_plat += 1
+#                        suur += j
+#        keskm = suur / zar_plat
+#        print(f"-------------------\nKeskmise palg on: {keskm}\n-------------------")
+#    elif v == 2:
+#        if keskm == 0:
+#            print("-------------------\nAlustuseks arvutage keskmine palk, kirjutage (1)\n-------------------")
+#            continue
+#        else:
+#            suur = 0
+#            for x in range(len(lst)):
+#                indeks = -1
+#                for i in lst:
+#                    for j in lst[x]:
+#                        indeks += 1
+#                        if indeks == 2:
+#                            if j > keskm:
+#                                suur += 1
+#        print(f"-------------------\nkeskmisest palgast rohkem teenijate arvu on {suur}\n-------------------")
+
+#    elif v == 3:
+#        suur = 0
+#        maks = 0
+#        if keskm == 0:
+#            print("-------------------\nAlustuseks arvutage keskmine palk, kirjutage (1)\n-------------------")
+#            continue
+#        else:
+#            for x in range(len(lst)):
+#                indeks = -1
+#                for i in lst:
+#                    for j in lst[x]:
+#                        indeks += 1
+#                        if indeks == 2:
+#                            if j <= keskm:
+#                                suur += i[1]
+#                                maks += 1
+#        x = suur / maks
+#        print(f"keskmised vanused eraldi neile, kes teenivad keskmisest palgast vähem (või samapalju) : {x}")
+
+#11
+
+#sona_list = ["a","b","c","d", "e", "g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+#indeks = -1
+#for j in sona_list:
+#    indeks += 1
+#    sona_list[indeks] = j * (indeks + 1)
+
+#12
+
+#lst = []
+
+#for i in range(10):
+#    lst.append(randint(1,100))
+#maks = 0
+#mini = 0
+
+#for el in lst:
+#    if mini != 0:
+#        if el > maks:
+#            maks = el
+#        elif el < mini:
+#            mini = el
+#    else:
+#        mini = el
+#print(f"max {maks}, min {mini}")
+#print(lst)
+
+#maks_indeks = lst.index(maks)
+#min_indeks = lst.index(mini)
+
+#lst.insert(maks_indeks, mini)
+#lst.pop(maks_indeks + 1)
+
+#lst.insert(min_indeks, maks)
+#lst.pop(min_indeks + 1)
+
+#print(lst, "uue")
+
+#13
+
+sonad_list = ["Arv", "Sõna", "Maa", "Puu", "Õun"]
+rand_sona = sonad_list[randint(0,len(sonad_list) - 1)]
+secret_sona = "_" * len(rand_sona)
+lst = []
+indeks_list = []
+print(rand_sona, "admin")
+
+while True:
+    print(secret_sona)
+    indeks = -1
+    v = input("Sistage: ")
+    if len(v) > 1:
+        continue
+    else: 
+        for i in rand_sona:
+            indeks += 1
+            if v.upper() == i.upper():
+                indeks_list.append(indeks)
+                lst.append(v)
+        if len(indeks_list) != 0:
+            print(indeks_list)
+            for i in indeks_list:
+                secret_sona[i] = lst[i]
+
