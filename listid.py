@@ -381,7 +381,6 @@ while True:
     if kas_sona_on == False:
         sonad_list = ["Juhatus", "Ema", "Puu", "Tiiger"]
         rand_sona = [sonad_list[randint(0, len(sonad_list) - 1)],""]
-        print(rand_sona[0], "ONLY FOR ADMIN!")
         condition = [0, 0]
         lst = []
 
